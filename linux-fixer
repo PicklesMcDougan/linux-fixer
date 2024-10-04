@@ -1,0 +1,9 @@
+#!/bin/bash
+
+for i in {1..49};
+  do echo -e "$(echo "${i}.0/50.0" | bc -l | cut -c2,3)%\r" | sed 's/\.//g'
+  sleep .04
+done
+echo -e "1,000,000,000,000,000,000%"
+
+echo "Problems Resolved"
