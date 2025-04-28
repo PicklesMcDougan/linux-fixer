@@ -1,13 +1,15 @@
 #!/bin/python3
 import sys
 from time import sleep
+from tqdm import trange
+import argparse
 
 def progress_bar():
-    for i in range(21):
-        sys.stdout.write('\r')
-        sys.stdout.write("[%-20s] %d%%" % ('='*i, 5*i))
-        sys.stdout.flush()
-        sleep(.25)
-    
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-a','--amount', type=int, default=42, help='Modify progress bar (Default: 42)')
+    args = parser.parse_args()
+    for i in trange(args.amount):
+        sleep(.05)
+
 progress_bar()
 print ("\nProblems Resolved")
